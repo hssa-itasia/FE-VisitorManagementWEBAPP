@@ -1,0 +1,127 @@
+label {
+    margin-right: 10px; /* Adjust margin-right as needed */
+    display: block; /* Make label a block-level element */
+    margin-bottom: 5%; /* Add space between label and input */
+    font-weight: bold; /* Set label font weight to bold */
+    color: #333; /* Label text color */
+    width: calc(100% - 100px); /* Adjust width as needed */
+  }
+  
+  .access {
+    font-size: 25px; /* Set font size to 25px */
+    color: black; /* Set color to black */
+  }
+  
+  .granted {
+    font-size: 25px; /* Set font size to 25px */
+    color: #00975F; /* Set color to green */
+  }
+
+  .message {
+    line-height: 1.5; // Adjust line height for better readability
+  }
+  
+
+  .txt-styl{
+    font-size: 18px;
+    display: block; 
+  }
+    
+
+.blue-text {
+  color: #00ffa0; /* Blue color for "V" and "O" */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 100px); /* Adjust height to account for header height */
+}
+
+.logo {
+  margin-bottom: 20px;
+}
+
+.form {
+  width: 100%;
+}
+
+.input-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 15px; /* Adjust margin-bottom as needed */
+}
+
+
+
+.text-input {
+  width: calc(100% - 100px); /* Adjust width as needed */
+  height: 40px;
+  text-align: center;
+  margin-bottom: 15%;
+}
+
+// .submit-btn {
+//   width: 100px; /* Adjust width as needed */
+// }
+
+.submit-btn {
+    margin-bottom: 10%;
+    width: 150px; /* Adjust width as needed */
+    height: 50px; /* Set button height */
+    background-color: #1D4370; /* Background color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Add border radius */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Add cursor pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+  }
+  
+  .submit-btn:hover {
+    background-color: #153454; /* Darken background color on hover */
+  }
+  .vimatext{
+    font-size: 20px;
+  }
+  .pbytext{
+    color: black;
+    font-size: 15px;
+    margin: 15px 0px 15px 0px;
+  }
+  .scannerimage{
+    margin: 20%;
+  }
+  /* Media Queries */
+
+/* Tablets */
+@media only screen and (min-width: 768px) {
+  .container {
+      // padding: 30px; /* Adjust padding for tablets */
+  }
+}
+
+/* Laptops */
+@media only screen and (min-width: 992px) {
+  .container {
+      // padding: 50px; /* Adjust padding for laptops */
+  }
+}
+
+/* Desktops */
+@media only screen and (min-width: 1200px) {
+  .container {
+      // padding: 100px; /* Adjust padding for desktops */
+  }
+  .scannerimage{
+    margin: 6%;
+}
+}
+
+/* Larger Screens */
+@media only screen and (min-width: 1600px) {
+  /* Additional styles for larger screens if needed */
+}

@@ -1,0 +1,15 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #1D4370; /* Background color */
+    color: white; /* Text color */
+    padding: 20px 0; /* Adjust padding as needed */
+  }
+  .center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+  }

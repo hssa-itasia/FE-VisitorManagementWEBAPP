@@ -1,0 +1,190 @@
+label {
+    margin-right: 10px; /* Adjust margin-right as needed */
+    display: block; /* Make label a block-level element */
+    margin-bottom: 5px; /* Add space between label and input */
+    color: #333; /* Label text color */
+    width: calc(100% - 100px); /* Adjust width as needed */
+  }
+
+
+.blue-text {
+  color: #00ffa0; /* Blue color for "V" and "O" */
+}
+
+.container {
+  padding: 30px 0px 0px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(130vh - 130px);
+}
+
+.logo {
+  margin-bottom: 20px;
+}
+
+.form {
+  width: 100%;
+}
+.error-message {
+  font-size: small;
+  color: red;
+}
+.input-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 15px; /* Adjust margin-bottom as needed */
+}
+
+
+
+.text-input {
+  width: calc(100% - 100px); /* Adjust width as needed */
+  height: 40px;
+//   text-align: center;
+  margin-bottom: 10px;
+}
+
+// .submit-btn {
+//   width: 100px; /* Adjust width as needed */
+// }
+
+.submit-btn {
+    width: 100px; /* Adjust width as needed */
+    height: 50px; /* Set button height */
+    background-color: #1D4370; /* Background color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Add border radius */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Add cursor pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+  }
+  
+  .submit-btn:hover {
+    background-color: #153454; /* Darken background color on hover */
+  }
+
+  .plfillform{
+    margin-right: 10px; /* Adjust margin-right as needed */
+    display: block; /* Make label a block-level element */
+    // margin-bottom: 5%; /* Add space between label and input */
+    font-weight: bold; /* Set label font weight to bold */
+    color: #333; /* Label text color */
+    width: calc(100% - 100px); /* Adjust width as needed */
+    font-size: 20px;
+    margin-top: 5%;
+  }
+  .mndtfileds{
+    margin-right: 10px;
+    margin-bottom: 5%;
+    display: block;
+    width: calc(100% - 100px);
+  }
+  
+  .signuptext{
+    font-size: 18px!important;
+  }
+  .camara{
+    height: 45px;
+    width: 45px;
+    margin: 30px;
+  }
+  .addpictext{
+    color:#404040;
+  }
+  // 
+  .card {
+    width: 250px;
+    // border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .webcam-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .image-container {
+    text-align: center;
+  }
+  
+  .camera-icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+  
+  .captured-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .btn-clear {
+    padding: 8px 16px;
+    background-color: #ff6f61;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-clear:hover {
+    background-color: #e6615d;
+  }
+  
+  // .card {
+  //   flex-direction: column;
+  //   justify-content: center;
+  //   align-items: center;
+  //   background-color: #f0f0f0; // Grey background color
+  //   width: 150px; // Adjust card width as needed
+  //   height: 150px; // Adjust card height as needed
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   border-radius: 20px; // Add border radius for rounded corners
+  // }
+  
+  
+/* Media Queries */
+
+/* Tablets */
+@media only screen and (min-width: 768px) {
+  .container {
+      padding: 30px; /* Adjust padding for tablets */
+  }
+}
+
+/* Laptops */
+@media only screen and (min-width: 992px) {
+  .container {
+      padding: 50px; /* Adjust padding for laptops */
+  }
+}
+
+/* Desktops */
+@media only screen and (min-width: 1200px) {
+  .container {
+      padding: 100px; /* Adjust padding for desktops */
+  }
+  .mndtfileds{
+    margin-right: 10px;
+    margin-bottom: 2%;
+    display: block;
+    width: calc(100% - 100px);
+  }
+}
+
+/* Larger Screens */
+@media only screen and (min-width: 1600px) {
+  /* Additional styles for larger screens if needed */
+}

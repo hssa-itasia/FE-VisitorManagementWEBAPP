@@ -1,0 +1,67 @@
+<!-- <div class="container">
+<div class="card">
+    <div class="header">
+      <div class="date-time">
+        <div class="date">DT: 08-May-24</div>
+        <div class="time">IN: 07:30 AM</div>
+      </div>
+      <div class="info">
+        <div class="text">Visitor Digital ID</div>
+        <div class="text">VIMA123456</div>
+      </div>
+    </div>
+    <div class="photo"></div>
+    <div class="details">
+      <div class="row">
+        <div class="label">Name:</div>
+        <div class="value">John Doe</div>
+      </div>
+      <div class="row">
+        <div class="label">Email:</div>
+        <div class="value">john.com</div>
+      </div>
+      <div class="row">
+        <div class="label">Contact Number:</div>
+        <div class="value">123-456-7890</div>
+      </div>
+      <div class="row">
+        <div class="label">Other Details:</div>
+        <div class="value">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus maximus nulla quis nisi vulputate, et egestas tellus dictum. Sed vestibulum justo ac risus hendrerit, et consequat tortor convallis.</div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<div class="container">
+
+  <div class="id-card">
+    <div class="top">
+      <div class="left-text">
+        <span class="chip1">DT: {{inDate}}</span>
+        <span class="chip2">IN: {{inTime}}</span>
+      </div>
+      <div class="right-text">
+        <span class="visitorDID">Visitor Degital ID</span>
+        <span class="vidNo">{{vidistorCardDetails?.data?.savedCheckInOut?.visitorInfoEntity?.visitorId}}</span>
+      </div>
+    </div>
+    <div class="photo">
+      <img src="assets/images/camara.svg">
+    </div>
+    <div class="details">
+      <h2>{{vidistorCardDetails?.data?.savedCheckInOut?.visitorInfoEntity?.name}}</h2>
+      <p>john.mathewmail.com</p>
+      <p>{{vidistorCardDetails?.data?.savedCheckInOut?.visitorInfoEntity?.phone}}</p>
+      </div>
+      <div>
+      <p class="borderDivider"></p>
+      <h3 class="otherDetailsS">Other Details :</h3>
+      <p class="otherDetailsS">Company : {{vidistorCardDetails?.data?.savedCheckInOut?.companyName}}</p>
+      <p class="otherDetailsS">Laptop Serial No : {{vidistorCardDetails?.data?.savedCheckInOut?.laptopSerialNumber}}</p>
+      <p class="otherDetailsS">Purpose of Visit : {{vidistorCardDetails?.data?.savedCheckInOut?.visitingPurpose}}</p>
+      <p class="otherDetailsS">To Meet : {{vidistorCardDetails?.data?.savedCheckInOut?.whomToVisit}}</p>
+    </div>
+  </div>
+  <button class="submit-btn" (click)="onClose()">Close</button>
+  <span class="pbytext">Powered by</span>
+  <img src="assets/images/Holcim_2021_sRGB_Digital_Hub_GDH.svg">
+</div>

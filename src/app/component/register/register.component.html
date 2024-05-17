@@ -1,0 +1,142 @@
+  
+  <div class="container" *ngIf="this.availableData?.data?.userDetails.checkId != null"> 
+    <div *ngIf="availableData" style="margin:15px">Visitor Name : {{availableData?.data?.userDetails?.visitorname}} (Regular Visitor)</div>
+    <button class="submit-btn" (click)="onCheckOut()">Check Out</button>
+    </div>
+  <div class="container" *ngIf="this.availableData?.data?.userDetails.checkId === null"> 
+    <span class="signuptext">Sign Up</span>
+    <span class="signuptext">(888-888-8888)</span>
+    <div class="card">
+      <div *ngIf="showWebcam" class="webcam-container">
+        <webcam #webcam [height]="200" [width]="200" [trigger]="trigger$"
+          (imageCapture)="handleImage($event)"
+          (initError)="handleInitError($event)">
+        </webcam>
+        <img src="assets/images/camara.svg" class="camera-icon" (click)="triggerSnapshot()">
+      </div>
+      <div *ngIf="!showWebcam" class="image-container">
+        <img [src]="webcamImage.imageAsDataUrl" class="captured-image">
+        <br>
+        <button (click)="clearPhoto()" class="btn-clear">Clear</button>
+      </div>
+    </div>
+    <!-- <div *ngIf="showWebcam">
+    <div class="card"> 
+      <webcam #webcam [height]="200" [width]="200" [trigger]="trigger$"
+        (imageCapture)="handleImage($event)"
+        (initError)="handleInitError($event)">
+      </webcam>
+      <img src="assets/images/camara.svg" class="camara" (click)="triggerSnapshot()">
+      </div>
+    </div>
+    
+    <div *ngIf="!showWebcam">
+      <img [src]="webcamImage.imageAsDataUrl" style="width: 200px;">
+      <button (click)="clearPhoto()">Retake Photo</button>
+    </div> -->
+    <!-- <div class="card"> -->
+    <!-- <span class="addpictext">Add Picture</span> -->
+     <!-- <img src="assets/images/camara.svg" class="camara" (click)="takePicture()"> -->
+    <!-- </div>     -->
+    <!-- <img src="assets/images/sign-up-account.svg"> -->
+    <div *ngIf="availableData" style="margin:15px">Visitor Name : {{availableData?.data?.userDetails?.visitorname}} (Regular Visitor)</div>
+    <span class="plfillform">Please fill-up the form</span>
+    <span class="mndtfileds">Fields marked in <span style="color:red">*</span> are mandatory.</span>
+    <form class="form"  [formGroup]="checkInForm" *ngIf="alreadyRegistered">
+
+      <div class="input-group">
+        <label>Laptop serial number</label>
+          <input type="text" class="text-input" formControlName="laptopSerialNumberC" placeholder="Eg: LTTHNP0001234">
+          <div *ngIf="checkInForm.get('laptopSerialNumberC')?.invalid && checkInForm.get('laptopSerialNumberC')?.touched">
+            <span class="error-message">Whom to Visit is required.</span>
+          </div>
+
+          <label>Company name<span style="color:red">*</span></label>
+          <input type="text" class="text-input" formControlName="companyNameC" placeholder="Eg: Holcim">
+          <div *ngIf="checkInForm.get('companyNameC')?.invalid && checkInForm.get('companyNameC')?.touched">
+            <span class="error-message">Company Name is required.</span>
+          </div>
+
+          <label>Whom to Visit<span style="color:red">*</span></label>
+          <input type="text" class="text-input" formControlName="whomToVisitC" placeholder="Eg: Joe">
+          <div *ngIf="checkInForm.get('whomToVisitC')?.invalid && checkInForm.get('whomToVisitC')?.touched">
+            <span class="error-message">Whom to Visit is required.</span>
+          </div>
+
+          <label>Purpose of visit<span style="color:red">*</span></label>
+          <select class="text-input" formControlName="purposeOfVisitC" placeholder="Eg. IT">
+            <option value="meeting">Meeting</option>
+            <option value="personal">Personal</option>
+            <option value="delivery">Delivery</option>
+        </select>
+          <!-- <input type="text" class="text-input" formControlName="purposeOfVisit" placeholder="Eg. IT"> -->
+          <div *ngIf="checkInForm.get('purposeOfVisit')?.invalid && checkInForm.get('purposeOfVisitC')?.touched">
+            <span class="error-message">Purpose of Visit is required.</span>
+          </div>
+
+           <label>Account Card Number<span style="color:red">*</span></label>
+           <input type="text" class="text-input" formControlName="accountCardNumberC" placeholder="Eg: 07">
+           <div *ngIf="checkInForm.get('accountCardNumberC')?.invalid && checkInForm.get('accountCardNumberC')?.touched">
+            <span class="error-message">Whom to Visit is required.</span>
+          </div>
+
+           <button class="submit-btn" (click)="onCheckIn()">Check In</button>
+
+         </div>
+         </form>
+
+    <form class="form" [formGroup]="visitorForm" *ngIf="alreadyRegistered === false">
+        <div class="input-group">
+          <label>Visitor Name<span style="color:red">*</span></label>
+          <input type="text" class="text-input" formControlName="visitorName" placeholder="Eg: Joe Snow">
+          <div *ngIf="visitorForm.get('visitorName')?.invalid && visitorForm.get('visitorName')?.touched">
+            <span class="error-message">Visitor Name is required.</span>
+          </div>
+      
+          <label>Contact Number<span style="color:red">*</span></label>
+          <input type="text" class="text-input" formControlName="contactNumber" placeholder="Eg: 0000000000">
+          <div *ngIf="visitorForm.get('contactNumber')?.invalid && visitorForm.get('contactNumber')?.touched && (visitorForm.get('visitorName')?.touched || submitted)">
+            <span class="error-message">Contact Number is required.</span>
+          </div>
+      
+          <label>Laptop serial number</label>
+          <input type="text" class="text-input" formControlName="laptopSerialNumber" placeholder="Eg: LTTHNP0001234">
+      
+          <label>Company name<span style="color:red">*</span></label>
+          <input type="text" class="text-input" formControlName="companyName" placeholder="Eg: Holcim">
+          <div *ngIf="visitorForm.get('companyName')?.invalid && visitorForm.get('companyName')?.touched">
+            <span class="error-message">Company Name is required.</span>
+          </div>
+      
+          <label>Whom to Visit<span style="color:red">*</span></label>
+          <input type="text" class="text-input" formControlName="whomToVisit" placeholder="Eg: Joe">
+          <div *ngIf="visitorForm.get('whomToVisit')?.invalid && visitorForm.get('whomToVisit')?.touched">
+            <span class="error-message">Whom to Visit is required.</span>
+          </div>
+
+          <label>Security Card Number<span style="color:red">*</span></label>
+          <input type="text" class="text-input" formControlName="secitiryCardNumber" placeholder="Eg: 07">
+          <div *ngIf="visitorForm.get('secitiryCardNumber')?.invalid && visitorForm.get('secitiryCardNumber')?.touched">
+            <span class="error-message">Security Card Number is required.</span>
+          </div>
+      
+          <label>Purpose of visit<span style="color:red">*</span></label>
+          <select class="text-input" formControlName="purposeOfVisit" placeholder="Eg. IT">
+            <option value="meeting">Meeting</option>
+            <option value="personal">Personal</option>
+            <option value="delivery">Delivery</option>
+        </select>
+          <!-- <input type="text" class="text-input" formControlName="purposeOfVisit" placeholder="Eg. IT"> -->
+          <div *ngIf="visitorForm.get('purposeOfVisit')?.invalid && visitorForm.get('purposeOfVisit')?.touched">
+            <span class="error-message">Purpose of Visit is required.</span>
+          </div>
+      
+          
+           
+
+        <button class="submit-btn" style="margin-right: 27%;">Cancel</button>
+        <button class="submit-btn" (click)="onSubmit()">Submit</button>
+      </div>
+    </form>
+  </div>
+  
