@@ -41,24 +41,24 @@
       </div>
       <div class="right-text">
         <span class="visitorDID">Visitor Degital ID</span>
-        <span class="vidNo">{{vidistorCardDetails?.data?.savedCheckInOut?.visitorInfoEntity?.visitorId}}</span>
+        <span class="vidNo">{{vidistorCardDetails?.data?.savedCheckInOut?.visitorInfoEntity?.visitorId ? vidistorCardDetails?.data?.savedCheckInOut?.visitorInfoEntity?.visitorId:vidistorCardDetails?.data?.visitorInfoEntity?.visitorId}}</span>
       </div>
     </div>
     <div class="photo">
       <img [src]="manipulatedUrl">
     </div>
     <div class="details">
-      <h2>{{vidistorCardDetails?.data?.savedCheckInOut?.visitorInfoEntity?.name}}</h2>
-      <p>{{vidistorCardDetails?.data?.savedCheckInOut?.visitorInfoEntity?.emailId}}</p>
-      <p>{{vidistorCardDetails?.data?.savedCheckInOut?.visitorInfoEntity?.phone}}</p>
+      <h2>{{vidistorCardDetails?.data?.savedCheckInOut?.visitorInfoEntity?.name ? vidistorCardDetails?.data?.savedCheckInOut?.visitorInfoEntity?.name : vidistorCardDetails?.data?.visitorInfoEntity?.name }}</h2>
+      <p>{{vidistorCardDetails?.data?.savedCheckInOut?.visitorInfoEntity?.emailId ? vidistorCardDetails?.data?.savedCheckInOut?.visitorInfoEntity?.emailId :vidistorCardDetails?.data?.visitorInfoEntity?.emailId}}</p>
+      <p>{{vidistorCardDetails?.data?.savedCheckInOut?.visitorInfoEntity?.phone ? vidistorCardDetails?.data?.savedCheckInOut?.visitorInfoEntity?.phone:vidistorCardDetails?.data?.visitorInfoEntity?.phone}}</p>
       </div>
       <div>
       <p class="borderDivider"></p>
       <h3 class="otherDetailsS">Other Details :</h3>
-      <p class="otherDetailsS">Company : {{vidistorCardDetails?.data?.savedCheckInOut?.companyName}}</p>
-      <p class="otherDetailsS" *ngIf="vidistorCardDetails?.data?.savedCheckInOut?.laptopSerialNumber">Laptop Serial No : {{vidistorCardDetails?.data?.savedCheckInOut?.laptopSerialNumber}}</p>
-      <p class="otherDetailsS">Purpose of Visit : {{vidistorCardDetails?.data?.savedCheckInOut?.visitingPurpose}}</p>
-      <p class="otherDetailsS">To Meet : {{vidistorCardDetails?.data?.savedCheckInOut?.whomToVisit}}</p>
+      <p class="otherDetailsS">Company : {{vidistorCardDetails?.data?.savedCheckInOut?.companyName ? vidistorCardDetails?.data?.savedCheckInOut?.companyName :vidistorCardDetails?.data?.companyName}}</p>
+      <p class="otherDetailsS" *ngIf="vidistorCardDetails?.data?.savedCheckInOut?.laptopSerialNumber">Laptop Serial No : {{vidistorCardDetails?.data?.savedCheckInOut?.laptopSerialNumber ? vidistorCardDetails?.data?.savedCheckInOut?.laptopSerialNumber:vidistorCardDetails?.data?.laptopSerialNumber}}</p>
+      <p class="otherDetailsS">Purpose of Visit : {{vidistorCardDetails?.data?.savedCheckInOut?.visitingPurpose ? vidistorCardDetails?.data?.savedCheckInOut?.visitingPurpose:vidistorCardDetails?.data?.visitingPurpose}}</p>
+      <p class="otherDetailsS">To Meet : {{vidistorCardDetails?.data?.savedCheckInOut?.whomToVisit ? vidistorCardDetails?.data?.savedCheckInOut?.whomToVisit:vidistorCardDetails?.data?.whomToVisit}}</p>
     </div>
   </div>
   <button class="submit-btn" (click)="onClose()">Close</button>

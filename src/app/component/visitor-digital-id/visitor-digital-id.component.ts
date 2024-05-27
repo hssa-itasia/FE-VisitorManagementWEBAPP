@@ -24,7 +24,7 @@ export class VisitorDigitalIdComponent {
     this.manipulatedUrl = this.uploadedImage.toString();
     console.log(this.manipulatedUrl);
     this.vidistorCardDetails = this.service.getvisitorData()
-    const intimeC = this.vidistorCardDetails?.data?.savedCheckInOut?.intime;
+    const intimeC = this.vidistorCardDetails?.data?.savedCheckInOut?.intime ? this.vidistorCardDetails?.data?.savedCheckInOut?.intime : this.vidistorCardDetails?.data?.intime;
     if (intimeC) {
       const [date, time] = intimeC.split(' ');
       this.inDate = date;
