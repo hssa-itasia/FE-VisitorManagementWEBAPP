@@ -1,6 +1,6 @@
   
   <div class="container" *ngIf="this.availableData?.data?.userDetails.checkId != null"> 
-    <div *ngIf="availableData" style="margin:15px">Visitor Name : {{availableData?.data?.userDetails?.visitorname}} (Regular Visitor)</div>
+    <div *ngIf="availableData" style="margin:15px">Visitor Name : {{availableData?.data?.userDetails?.visitorInfoEntity?.name}} (Regular Visitor)</div>
     <button class="submit-btn" (click)="onCheckOut()">Check Out</button>
     </div>
   <div class="container" *ngIf="this.availableData?.data?.userDetails.checkId === null"> 
@@ -39,7 +39,7 @@
      <!-- <img src="assets/images/camara.svg" class="camara" (click)="takePicture()"> -->
     <!-- </div>     -->
     <!-- <img src="assets/images/sign-up-account.svg"> -->
-    <div *ngIf="availableData" style="margin:15px">Visitor Name : {{availableData?.data?.userDetails?.visitorname}} (Regular Visitor)</div>
+    <div *ngIf="availableData" style="margin:15px">Visitor Name : {{availableData?.data?.userDetails?.visitorInfoEntity?.name}} (Regular Visitor)</div>
     <span class="plfillform">Please fill-up the form</span>
     <span class="mndtfileds">Fields marked in <span style="color:red">*</span> are mandatory.</span>
     <form class="form"  [formGroup]="checkInForm" *ngIf="alreadyRegistered">
@@ -51,6 +51,12 @@
             <span class="error-message">Whom to Visit is required.</span>
           </div>
 
+          <label>Email<span style="color:red">*</span></label>
+          <input type="text" class="text-input" formControlName="EmailC" placeholder="Eg: jeo.ext@holcim.com">
+          <div *ngIf="checkInForm.get('EmailC')?.invalid && checkInForm.get('EmailC')?.touched">
+            <span class="error-message">Please enter a valid email address.</span>
+          </div>
+
           <label>Company name<span style="color:red">*</span></label>
           <input type="text" class="text-input" formControlName="companyNameC" placeholder="Eg: Holcim">
           <div *ngIf="checkInForm.get('companyNameC')?.invalid && checkInForm.get('companyNameC')?.touched">
@@ -58,9 +64,16 @@
           </div>
 
           <label>Whom to Visit<span style="color:red">*</span></label>
-          <input type="text" class="text-input" formControlName="whomToVisitC" placeholder="Eg: Joe">
+          <input type="text" class="text-input" formControlName="whomToVisitC" placeholder="Eg: Joe" (input)="handleInputChange1($event)">
           <div *ngIf="checkInForm.get('whomToVisitC')?.invalid && checkInForm.get('whomToVisitC')?.touched">
             <span class="error-message">Whom to Visit is required.</span>
+          </div>
+          <div *ngIf="showDropdown" class="autocomplete-list">
+            <ul>
+              <li *ngFor="let visitor of filteredVisitors" (click)="selectVisitor1(visitor)">
+                {{ visitor.name }} - {{ visitor.emailId }}
+              </li>
+            </ul>
           </div>
 
           <label>Purpose of visit<span style="color:red">*</span></label>
@@ -74,11 +87,11 @@
             <span class="error-message">Purpose of Visit is required.</span>
           </div>
 
-           <label>Account Card Number<span style="color:red">*</span></label>
+           <label>Account Card Number</label>
            <input type="text" class="text-input" formControlName="accountCardNumberC" placeholder="Eg: 07">
-           <div *ngIf="checkInForm.get('accountCardNumberC')?.invalid && checkInForm.get('accountCardNumberC')?.touched">
+           <!-- <div *ngIf="checkInForm.get('accountCardNumberC')?.invalid && checkInForm.get('accountCardNumberC')?.touched">
             <span class="error-message">Whom to Visit is required.</span>
-          </div>
+          </div> -->
 
            <button class="submit-btn" (click)="onCheckIn()">Check In</button>
 
@@ -102,6 +115,12 @@
           <label>Laptop serial number</label>
           <input type="text" class="text-input" formControlName="laptopSerialNumber" placeholder="Eg: LTTHNP0001234">
       
+          <label>Email<span style="color:red">*</span></label>
+          <input type="text" class="text-input" formControlName="Email" placeholder="Eg: jeo.ext@holcim.com">
+          <div *ngIf="visitorForm.get('Email')?.invalid && visitorForm.get('Email')?.touched">
+            <span class="error-message">Please enter a valid email address.</span>
+          </div>
+
           <label>Company name<span style="color:red">*</span></label>
           <input type="text" class="text-input" formControlName="companyName" placeholder="Eg: Holcim">
           <div *ngIf="visitorForm.get('companyName')?.invalid && visitorForm.get('companyName')?.touched">
@@ -109,9 +128,17 @@
           </div>
       
           <label>Whom to Visit<span style="color:red">*</span></label>
-          <input type="text" class="text-input" formControlName="whomToVisit" placeholder="Eg: Joe">
+          <input type="text" class="text-input" formControlName="whomToVisit" placeholder="Eg: Joe" (input)="handleInputChange($event)">
+          
           <div *ngIf="visitorForm.get('whomToVisit')?.invalid && visitorForm.get('whomToVisit')?.touched">
             <span class="error-message">Whom to Visit is required.</span>
+          </div>
+          <div *ngIf="showDropdown" class="autocomplete-list">
+            <ul>
+              <li *ngFor="let visitor of filteredVisitors" (click)="selectVisitor(visitor)">
+                {{ visitor.name }} - {{ visitor.emailId }}
+              </li>
+            </ul>
           </div>
 
           <label>Security Card Number<span style="color:red">*</span></label>

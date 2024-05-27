@@ -29,6 +29,7 @@ ngOnInit(){
     this.service.serachMobileNo(this.mobileNo).subscribe(
       (response) => {
         this.responseData = response;
+        this.service.setmobileNo(this.mobileNo);
         this.router.navigateByUrl('/register')
         this.service.setData(this.responseData)
       },
@@ -36,6 +37,7 @@ ngOnInit(){
         this.errorMessage = error;
         this.service.setData('')
         this.router.navigateByUrl('/register')
+        this.service.setmobileNo(this.mobileNo);
         // this.openSnackBar("No visitor found with the provided mobile number.", 'OK')
         // this.openSnackBar(this.errorMessage, 'OK')
       }

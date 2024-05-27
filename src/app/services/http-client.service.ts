@@ -14,6 +14,13 @@ export class HttpClientService {
       catchError(this.handleError)
     );
   } 
+
+  searchWhomToVisist(): Observable<any> {
+    return this.http.get<any>(`${this.base_url}vima/entry/whomToVisit`).pipe(
+      catchError(this.handleError)
+    );
+  } 
+
   regSave(data:any): Observable<any> {
     return this.http.post<any>(`${this.base_url}vima/entry/saveVisitor`,data).pipe(
       catchError(this.handleError)
@@ -60,5 +67,22 @@ export class HttpClientService {
 
   getvisitorData() {
     return this.visitorData;
+  }
+  private imageUrl: any;
+  setimageUrl(imageUrl: any) {
+    this.imageUrl = imageUrl;
+  }
+
+  getimageUrl() {
+    return this.imageUrl;
+  }
+  
+  private mobileNo: any;
+  setmobileNo(mobileNo: any) {
+    this.mobileNo = mobileNo;
+  }
+
+  getmobileNo() {
+    return this.mobileNo;
   }
 }

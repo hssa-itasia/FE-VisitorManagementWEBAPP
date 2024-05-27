@@ -45,18 +45,18 @@
       </div>
     </div>
     <div class="photo">
-      <img src="assets/images/camara.svg">
+      <img [src]="manipulatedUrl">
     </div>
     <div class="details">
       <h2>{{vidistorCardDetails?.data?.savedCheckInOut?.visitorInfoEntity?.name}}</h2>
-      <p>john.mathewmail.com</p>
+      <p>{{vidistorCardDetails?.data?.savedCheckInOut?.visitorInfoEntity?.emailId}}</p>
       <p>{{vidistorCardDetails?.data?.savedCheckInOut?.visitorInfoEntity?.phone}}</p>
       </div>
       <div>
       <p class="borderDivider"></p>
       <h3 class="otherDetailsS">Other Details :</h3>
       <p class="otherDetailsS">Company : {{vidistorCardDetails?.data?.savedCheckInOut?.companyName}}</p>
-      <p class="otherDetailsS">Laptop Serial No : {{vidistorCardDetails?.data?.savedCheckInOut?.laptopSerialNumber}}</p>
+      <p class="otherDetailsS" *ngIf="vidistorCardDetails?.data?.savedCheckInOut?.laptopSerialNumber">Laptop Serial No : {{vidistorCardDetails?.data?.savedCheckInOut?.laptopSerialNumber}}</p>
       <p class="otherDetailsS">Purpose of Visit : {{vidistorCardDetails?.data?.savedCheckInOut?.visitingPurpose}}</p>
       <p class="otherDetailsS">To Meet : {{vidistorCardDetails?.data?.savedCheckInOut?.whomToVisit}}</p>
     </div>
