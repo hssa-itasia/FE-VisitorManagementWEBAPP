@@ -1,9 +1,9 @@
   
-  <div class="container" *ngIf="this.availableData?.data?.userDetails.checkId != null"> 
+  <div class="container" *ngIf="availableData?.data?.userDetails.checkId != null"> 
     <div *ngIf="availableData" style="margin:15px">Visitor Name : {{availableData?.data?.userDetails?.visitorInfoEntity?.name}} (Regular Visitor)</div>
     <button class="submit-btn" (click)="onCheckOut()">Check Out</button>
     </div>
-  <div class="container" *ngIf="this.availableData?.data?.userDetails.checkId === null"> 
+  <div class="container" *ngIf="availableData?.data?.userDetails.checkId === null"> 
     <span class="signuptext">Sign Up</span>
     <span class="signuptext">(888-888-8888)</span>
     <div class="card">
@@ -45,11 +45,11 @@
     <form class="form"  [formGroup]="checkInForm" *ngIf="alreadyRegistered">
 
       <div class="input-group">
-        <label>Laptop serial number</label>
+        <!-- <label>Laptop serial number</label>
           <input type="text" class="text-input" formControlName="laptopSerialNumberC" placeholder="Eg: LTTHNP0001234">
           <div *ngIf="checkInForm.get('laptopSerialNumberC')?.invalid && checkInForm.get('laptopSerialNumberC')?.touched">
             <span class="error-message">Whom to Visit is required.</span>
-          </div>
+          </div> -->
 
           <label>Email<span style="color:red">*</span></label>
           <input type="text" class="text-input" formControlName="EmailC" placeholder="Eg: jeo.ext@holcim.com">
@@ -71,7 +71,7 @@
           <div *ngIf="showDropdown" class="autocomplete-list">
             <ul>
               <li *ngFor="let visitor of filteredVisitors" (click)="selectVisitor1(visitor)">
-                {{ visitor.name }} - {{ visitor.emailId }}
+                {{ visitor.name }} - {{ visitor.email }}
               </li>
             </ul>
           </div>
@@ -87,14 +87,14 @@
             <span class="error-message">Purpose of Visit is required.</span>
           </div>
 
-           <label>Account Card Number</label>
-           <input type="text" class="text-input" formControlName="accountCardNumberC" placeholder="Eg: 07">
+          <label></label>
+           <!-- <label>Account Card Number</label>
+           <input type="text" class="text-input" formControlName="accountCardNumberC" placeholder="Eg: 07"> -->
            <!-- <div *ngIf="checkInForm.get('accountCardNumberC')?.invalid && checkInForm.get('accountCardNumberC')?.touched">
             <span class="error-message">Whom to Visit is required.</span>
           </div> -->
 
            <button class="submit-btn" (click)="onCheckIn()">Check In</button>
-
          </div>
          </form>
 
@@ -112,8 +112,8 @@
             <span class="error-message">Contact Number is required.</span>
           </div>
       
-          <label>Laptop serial number</label>
-          <input type="text" class="text-input" formControlName="laptopSerialNumber" placeholder="Eg: LTTHNP0001234">
+          <!-- <label>Laptop serial number</label>
+          <input type="text" class="text-input" formControlName="laptopSerialNumber" placeholder="Eg: LTTHNP0001234"> -->
       
           <label>Email<span style="color:red">*</span></label>
           <input type="text" class="text-input" formControlName="Email" placeholder="Eg: jeo.ext@holcim.com">
@@ -136,16 +136,16 @@
           <div *ngIf="showDropdown" class="autocomplete-list">
             <ul>
               <li *ngFor="let visitor of filteredVisitors" (click)="selectVisitor(visitor)">
-                {{ visitor.name }} - {{ visitor.emailId }}
+                {{ visitor.name }} - {{ visitor.email }}
               </li>
             </ul>
           </div>
 
-          <label>Security Card Number<span style="color:red">*</span></label>
+          <!-- <label>Security Card Number<span style="color:red">*</span></label>
           <input type="text" class="text-input" formControlName="secitiryCardNumber" placeholder="Eg: 07">
           <div *ngIf="visitorForm.get('secitiryCardNumber')?.invalid && visitorForm.get('secitiryCardNumber')?.touched">
             <span class="error-message">Security Card Number is required.</span>
-          </div>
+          </div> -->
       
           <label>Purpose of visit<span style="color:red">*</span></label>
           <select class="text-input" formControlName="purposeOfVisit" placeholder="Eg. IT">

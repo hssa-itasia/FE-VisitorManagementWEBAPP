@@ -31,6 +31,8 @@ export class RegisterComponent {
   filteredVisitors: any[] = [];
   showDropdown = false;
   enteredMobileNo:any;
+  selectedValWhomToVisit:any;
+  selectedValWhomToVisit1:any;
   
   @ViewChild('webcam') webcam: any;
   public webcamImage!: WebcamImage;
@@ -144,7 +146,7 @@ async compressImage(blob: Blob, quality: number): Promise<Blob> {
   ngOnInit() {
     //existing user
     this.checkInForm = this.formBuilder.group({
-      laptopSerialNumberC: [''],
+      // laptopSerialNumberC: [''],
       whomToVisitC: ['', Validators.required],
       accountCardNumberC: [''],
       companyNameC: ['', Validators.required],
@@ -156,11 +158,11 @@ async compressImage(blob: Blob, quality: number): Promise<Blob> {
     this.visitorForm = this.formBuilder.group({
       visitorName: ['', Validators.required],
       contactNumber: ['', Validators.required],
-      laptopSerialNumber: [''],
+      // laptopSerialNumber: [''],
       companyName: ['', Validators.required],
       whomToVisit: ['', Validators.required],
       purposeOfVisit: ['', Validators.required],
-      secitiryCardNumber:['',Validators.required],
+      // secitiryCardNumber:['',Validators.required],
       Email:['',[Validators.required, Validators.email]]
     });
     this.availableData = this.service.getData();
@@ -199,29 +201,28 @@ async compressImage(blob: Blob, quality: number): Promise<Blob> {
     this.filterVisitors1(value);
   }
   filterVisitors(value: any): void {
-    this.whomToVisitD = [
-      {
-        "name": "Abdul",
-        "emailId": "abdul1@ext1@holcim.com",
-        "id": 217
-      },
-      {
-        "name": "Salman",
-        "emailId": "salman@ext1@holcim.com",
-        "id": 219
-      },
-      {
-        "name": "Salman1",
-        "emailId": "salman1@ext1@holcim.com",
-        "id": 219
-      },
-      {
-        "name": "Tushar",
-        "emailId": "tushar@ext1@holcim.com",
-        "id": 221
-      }
-      // Add more data as needed
-    ];
+    // this.whomToVisitD = [
+    //   {
+    //     "name": "Abdul",
+    //     "emailId": "abdul1@ext1@holcim.com",
+    //     "id": 217
+    //   },
+    //   {
+    //     "name": "Salman",
+    //     "emailId": "salman@ext1@holcim.com",
+    //     "id": 219
+    //   },
+    //   {
+    //     "name": "Salman1",
+    //     "emailId": "salman1@ext1@holcim.com",
+    //     "id": 219
+    //   },
+    //   {
+    //     "name": "Tushar",
+    //     "emailId": "tushar@ext1@holcim.com",
+    //     "id": 221
+    //   }
+    // ];
     
     if (!value) {
       this.filteredVisitors = [];
@@ -235,29 +236,28 @@ async compressImage(blob: Blob, quality: number): Promise<Blob> {
     this.showDropdown = this.filteredVisitors.length > 0;
   }
   filterVisitors1(value: any): void {
-    this.whomToVisitD = [
-      {
-        "name": "Abdul",
-        "emailId": "abdul1@ext1@holcim.com",
-        "id": 217
-      },
-      {
-        "name": "Salman",
-        "emailId": "salman@ext1@holcim.com",
-        "id": 219
-      },
-      {
-        "name": "Salman1",
-        "emailId": "salman1@ext1@holcim.com",
-        "id": 219
-      },
-      {
-        "name": "Tushar",
-        "emailId": "tushar@ext1@holcim.com",
-        "id": 221
-      }
-      // Add more data as needed
-    ];
+    // this.whomToVisitD = [
+    //   {
+    //     "name": "Abdul",
+    //     "emailId": "abdul1@ext1@holcim.com",
+    //     "id": 217
+    //   },
+    //   {
+    //     "name": "Salman",
+    //     "emailId": "salman@ext1@holcim.com",
+    //     "id": 219
+    //   },
+    //   {
+    //     "name": "Salman1",
+    //     "emailId": "salman1@ext1@holcim.com",
+    //     "id": 219
+    //   },
+    //   {
+    //     "name": "Tushar",
+    //     "emailId": "tushar@ext1@holcim.com",
+    //     "id": 221
+    //   }
+    // ];
     
     if (!value) {
       this.filteredVisitors = [];
@@ -270,15 +270,19 @@ async compressImage(blob: Blob, quality: number): Promise<Blob> {
     );
     this.showDropdown = this.filteredVisitors.length > 0;
   }
+  
   selectVisitor(visitor: any): void {
+    this.selectedValWhomToVisit = visitor.email;
+    debugger;
     this.visitorForm.patchValue({
-      whomToVisit: visitor.name
+      whomToVisit: visitor.email
     });
     this.showDropdown = false;
   }
   selectVisitor1(visitor: any): void {
+    this.selectedValWhomToVisit1= visitor.email;
     this.checkInForm.patchValue({
-      whomToVisitC: visitor.name
+      whomToVisitC: visitor.email
     });
     this.showDropdown = false;
   }
@@ -311,8 +315,8 @@ async compressImage(blob: Blob, quality: number): Promise<Blob> {
           "flag1": null,
           "image": this.uploadedImageUrl,
           "visitingPurpose": this.checkInForm.value.purposeOfVisitC,
-          "laptopSerialNumber": this.checkInForm.value.laptopSerialNumberC,
-          "whomToVisit": this.checkInForm.value.whomToVisitC,
+          "laptopSerialNumber": null,
+          "whomToVisit": this.selectedValWhomToVisit1 ? this.selectedValWhomToVisit1 : this.checkInForm.value.whomToVisitC,
           "visitorType":  "REGULARVISITOR",//"REGULARVISITOR",  
           "companyName": this.checkInForm.value.companyNameC,
           "securityCardNumber":this.checkInForm.value.accountCardNumberC
@@ -351,11 +355,11 @@ async compressImage(blob: Blob, quality: number): Promise<Blob> {
           "flag1": null,
           "image": this.uploadedImageUrl,
           "visitingPurpose": this.visitorForm.value.purposeOfVisit,
-          "laptopSerialNumber": this.visitorForm.value.laptopSerialNumber,
-          "whomToVisit": this.visitorForm.value.whomToVisit,
+          "laptopSerialNumber": null,
+          "whomToVisit": this.selectedValWhomToVisit ? this.selectedValWhomToVisit : this.visitorForm.value.whomToVisit,
           "visitorType":  null,//"REGULARVISITOR",  
           "companyName":this.visitorForm.value.companyName,
-          "securityCardNumber":this.visitorForm.value.secitiryCardNumber,
+          "securityCardNumber":null,
             "visitorInfoEntity": {
               "name": this.visitorForm.value.visitorName,
               "phone": this.visitorForm.value.contactNumber,
