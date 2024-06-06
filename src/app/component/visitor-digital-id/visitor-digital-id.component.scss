@@ -130,7 +130,7 @@
 /* Laptops */
 @media only screen and (min-width: 992px) {
   .container {
-      padding: 50px; /* Adjust padding for laptops */
+      padding: 70px; /* Adjust padding for laptops */
   }
 }
 
@@ -144,6 +144,12 @@
 /* Larger Screens */
 @media only screen and (min-width: 1600px) {
   /* Additional styles for larger screens if needed */
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+      padding: 90px;
+  }
 }
 
 

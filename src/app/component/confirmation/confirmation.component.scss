@@ -100,15 +100,19 @@ label {
 /* Tablets */
 @media only screen and (min-width: 768px) {
   .container {
-      // padding: 30px; /* Adjust padding for tablets */
+      padding: 30px; /* Adjust padding for tablets */
   }
 }
 
 /* Laptops */
 @media only screen and (min-width: 992px) {
   .container {
-      // padding: 50px; /* Adjust padding for laptops */
+      padding: 50px; /* Adjust padding for laptops */
   }
+  .logo {
+    margin-bottom: 5px;
+  }
+  
 }
 
 /* Desktops */

@@ -225,7 +225,7 @@ async compressImage(blob: Blob, quality: number): Promise<Blob> {
     // ];
     
     if (!value) {
-      this.filteredVisitors = [];
+      this.filteredVisitors = this.whomToVisitD.slice();
       this.showDropdown = false;
       return;
     }
@@ -260,7 +260,7 @@ async compressImage(blob: Blob, quality: number): Promise<Blob> {
     // ];
     
     if (!value) {
-      this.filteredVisitors = [];
+      this.filteredVisitors = this.whomToVisitD.slice();
       this.showDropdown = false;
       return;
     }
